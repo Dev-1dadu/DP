@@ -32,7 +32,7 @@ def delete(key):
             return
     print("Key not found!")
 
-# Display hash table
+
 def display():
     print("\nHash Table:")
     for i in range(SIZE):
