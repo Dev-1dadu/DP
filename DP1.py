@@ -1,14 +1,14 @@
-# -------- CUSTOMER ACCOUNT SEARCH SYSTEM --------
 
-# Linear Search Function
+
+
 def linear_search(ids, key):
     for i in range(len(ids)):
         if ids[i] == key:
-            return i  # found → return index
-    return -1  # not found
+            return  i
+    return -1  
 
 
-# Binary Search Function
+
 def binary_search(ids, key):
     low = 0
     high = len(ids) - 1
@@ -26,8 +26,8 @@ def binary_search(ids, key):
     return -1
 
 
-# ---------------- MAIN PROGRAM ----------------
-# Input customer account IDs
+
+
 n = int(input("Enter number of customer accounts: "))
 ids = []
 
@@ -39,15 +39,14 @@ print("\nCustomer Account IDs:", ids)
 
 key = int(input("\nEnter Account ID to search: "))
 
-# --- Linear Search ---
+
 pos = linear_search(ids, key)
 if pos != -1:
     print(f"\n(Linear Search) Account ID {key} found at position {pos + 1}.")
 else:
     print(f"\n(Linear Search) Account ID {key} not found.")
+    
 
-# --- Binary Search ---
-# Binary search works only on sorted lists
 ids.sort()
 print("\nSorted Account IDs for Binary Search:", ids)
 
@@ -56,3 +55,4 @@ if pos != -1:
     print(f"(Binary Search) Account ID {key} found at position {pos + 1}.")
 else:
     print(f"(Binary Search) Account ID {key} not found.")
+
