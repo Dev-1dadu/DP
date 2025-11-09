@@ -1,35 +1,35 @@
-# -------- REAL-TIME UNDO/REDO SYSTEM USING STACK --------
 
-# Two stacks: one for undo, one for redo
+
+
 undo_stack = []
 redo_stack = []
 
-# Function to make a change
+
 def make_change():
     change = input("Enter your text change: ")
-    undo_stack.append(change)   # push to undo stack
-    redo_stack.clear()          # clear redo stack (new change breaks redo chain)
+    undo_stack.append(change)   
+    redo_stack.clear()          
     print(f"Change '{change}' added successfully!")
 
-# Function to undo last change
+
 def undo_action():
     if not undo_stack:
         print("Nothing to undo!")
     else:
-        last_change = undo_stack.pop()  # remove last change
-        redo_stack.append(last_change)  # save it for redo
+        last_change = undo_stack.pop()  
+        redo_stack.append(last_change)  
         print(f"Undo: '{last_change}' reverted.")
 
-# Function to redo last undone change
+
 def redo_action():
     if not redo_stack:
         print("Nothing to redo!")
     else:
-        change = redo_stack.pop()       # take last undone change
-        undo_stack.append(change)       # reapply it
+        change = redo_stack.pop()       
+        undo_stack.append(change)       
         print(f"Redo: '{change}' re-applied.")
 
-# Function to display current document state
+
 def display_document():
     if not undo_stack:
         print("Document is empty.")
@@ -38,7 +38,7 @@ def display_document():
         for i, change in enumerate(undo_stack, start=1):
             print(f"{i}. {change}")
 
-# ---------------- MAIN MENU ----------------
+
 while True:
     print("\n--- REAL-TIME UNDO/REDO SYSTEM (STACK) ---")
     print("1. Make a Change")
@@ -62,3 +62,4 @@ while True:
         break
     else:
         print("Invalid choice! Please try again.")
+
