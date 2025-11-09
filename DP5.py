@@ -1,20 +1,20 @@
 def create_node(roll, name, marks):  
     return {"roll": roll, "name": name, "marks": marks, "next": None}
 def add_student(head):  
-    roll = int(input("Enter Roll No: "))   # Input roll number
-    name = input("Enter Name: ")           # Input student name
-    marks = float(input("Enter Marks: "))  # Input marks (float allows decimals)
+    roll = int(input("Enter Roll No: "))   
+    name = input("Enter Name: ")          
+    marks = float(input("Enter Marks: ")) 
 
     
     new_node = create_node(roll, name, marks)
 
-    # If the list is empty, the new node becomes the first node (head)
+    
     if head is None:
         head = new_node
     else:
-        # Otherwise, traverse till the last node
+        
         temp = head
-        while temp["next"] is not None:  # Move until we find last node
+        while temp["next"] is not None:  
             temp = temp["next"]
         temp["next"] = new_node  # Link new node at the end
 
@@ -182,3 +182,4 @@ while True:
         break                          # Exit loop and program
     else:
         print("Invalid choice!")       # Wrong input handling
+
