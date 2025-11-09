@@ -1,4 +1,4 @@
-# Hash Table using Linear Probing (Non-OOP)
+
 def hash_function(key, size):
     return key % size   
 
@@ -86,4 +86,5 @@ while True:
         print("Exiting program.")
         break
     else:
+
         print("Invalid choice, try again.")
