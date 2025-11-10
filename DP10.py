@@ -1,4 +1,4 @@
-#dp10 Binary Search Tree for storing city names and populations (non-OOP)
+
 
 class Node:
     def __init__(self, city, population):
@@ -7,7 +7,7 @@ class Node:
         self.left = None
         self.right = None
 
-# Insert new city
+
 def insert(root, city, population):
     if root is None:
         return Node(city, population)
@@ -19,7 +19,7 @@ def insert(root, city, population):
         print("City already exists! Use update option.")
     return root
 
-# Delete city
+
 def delete(root, city):
     if root is None:
         print("City not found!")
@@ -45,7 +45,7 @@ def findMin(node):
         node = node.left
     return node
 
-# Update population
+
 def update(root, city, new_pop):
     if root is None:
         print("City not found!")
@@ -65,14 +65,14 @@ def inorder(root):
         print(f"{root.city} : {root.population}")
         inorder(root.right)
 
-# Display cities in descending order
+
 def descending(root):
     if root:
         descending(root.right)
         print(f"{root.city} : {root.population}")
         descending(root.left)
 
-# Search city and count comparisons
+
 def search(root, city):
     comparisons = 0
     while root:
@@ -88,11 +88,11 @@ def search(root, city):
     print("City not found!")
     print(f"Comparisons made: {comparisons}")
 
-# Maximum comparisons in worst case = height of tree
+
 def max_comparisons(n):
     print(f"Maximum comparisons (worst case) = {n}")
 
-# ---------------- MAIN PROGRAM ----------------
+#MAIN PROGRAM
 root = None
 
 while True:
@@ -134,4 +134,5 @@ while True:
         print("Exiting program...")
         break
     else:
+
         print("Invalid choice!")
