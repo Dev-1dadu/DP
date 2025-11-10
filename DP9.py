@@ -1,4 +1,4 @@
-#dp9 Binary Search Tree Implementation in Python (Menu-driven)
+
 
 class Node:
     def __init__(self, key):
@@ -6,7 +6,6 @@ class Node:
         self.left = None
         self.right = None
 
-# ----------- Insert Node -----------
 def insert(root, key):
     if root is None:
         return Node(key)
@@ -16,7 +15,7 @@ def insert(root, key):
         root.right = insert(root.right, key)
     return root
 
-# ----------- Search Node -----------
+
 def search(root, key):
     if root is None:
         return False
@@ -27,14 +26,12 @@ def search(root, key):
     else:
         return search(root.right, key)
 
-# ----------- Find Minimum Value Node -----------
 def find_min(root):
     current = root
     while current.left is not None:
         current = current.left
     return current
 
-# ----------- Delete Node -----------
 def delete(root, key):
     if root is None:
         return root
@@ -54,7 +51,7 @@ def delete(root, key):
         root.right = delete(root.right, temp.key)
     return root
 
-# ----------- Traversals -----------
+# Traversals 
 def inorder(root):
     if root:
         inorder(root.left)
@@ -73,7 +70,7 @@ def postorder(root):
         postorder(root.right)
         print(root.key, end=" ")
 
-# ----------- Main Program -----------
+
 root = None
 
 while True:
@@ -117,5 +114,6 @@ while True:
 
     else:
         print("Invalid choice! Please try again.")
+
 
 	
