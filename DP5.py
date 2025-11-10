@@ -16,23 +16,21 @@ def add_student(head):
         temp = head
         while temp["next"] is not None:  
             temp = temp["next"]
-        temp["next"] = new_node  # Link new node at the end
+        temp["next"] = new_node 
 
     print("Student added successfully!")
-    return head  # Return updated head of the linked list
-
-
-# Function to delete a student record using roll number
+    return head  
+    
 def delete_student(head):
-    if head is None:  # If no data in list
+    if head is None:  
         print("No records found.")
         return head
 
     roll = int(input("Enter Roll No to delete: "))
 
-    # Case 1: If first node (head) is to be deleted
+
     if head["roll"] == roll:
-        head = head["next"]  # Move head to next node
+        head = head["next"] 
         print("Record deleted successfully!")
         return head
 
@@ -43,40 +41,40 @@ def delete_student(head):
         prev = temp
         temp = temp["next"]
 
-    if temp is None:  # If record not found
+    if temp is None:  
         print("Record not found!")
     else:
-        prev["next"] = temp["next"]  # Bypass (unlink) the node to delete it
+        prev["next"] = temp["next"]  
         print("Record deleted successfully!")
 
-    return head  # Return updated linked list
+    return head  
 
 
-# Function to update an existing student record
+
 def update_student(head):
     if head is None:
         print("No records found.")
         return
 
-    roll = int(input("Enter Roll No to update: "))  # Roll number to find
-    temp = head  # Start from first node
+    roll = int(input("Enter Roll No to update: "))  
+    temp = head  
     while temp:
-        if temp["roll"] == roll:  # If roll matches
+        if temp["roll"] == roll:  
             print("Record found.")
-            # Take new data
+            
             name = input("Enter new name: ")
             marks = float(input("Enter new marks: "))
-            # Update dictionary values
+            
             temp["name"] = name
             temp["marks"] = marks
             print("Record updated successfully!")
-            return  # Exit after updating
-        temp = temp["next"]  # Move to next node if not found yet
+            return  
+        temp = temp["next"]  
 
-    print("Record not found!")  # If roll not found
+    print("Record not found!")  
 
 
-# Function to search for a student using roll number
+
 def search_student(head):
     if head is None:
         print("No records found.")
@@ -85,61 +83,61 @@ def search_student(head):
     roll = int(input("Enter Roll No to search: "))
     temp = head
     while temp:
-        if temp["roll"] == roll:  # Match found
+        if temp["roll"] == roll:  
             print(f"Record Found → Roll: {temp['roll']}, Name: {temp['name']}, Marks: {temp['marks']}")
             return
-        temp = temp["next"]  # Move to next node
-    print("Record not found!")  # If end reached without finding
+        temp = temp["next"]
+    print("Record not found!")  
 
 
-# Function to display all student records
+
 def display_students(head):
     if head is None:
         print("No records to display.")
         return
 
-    print("\nROLL NO\tNAME\tMARKS")  # Table header
+    print("\nROLL NO\tNAME\tMARKS")  
     temp = head
-    while temp:  # Traverse until end
+    while temp:  
         print(f"{temp['roll']}\t{temp['name']}\t{temp['marks']}")  
-        temp = temp["next"]  # Move to next node
+        temp = temp["next"]  
 
 
-# Function to sort student records
+
 def sort_students(head):
-    # If 0 or 1 record → no need to sort
+    
     if head is None or head["next"] is None:
         print("Not enough records to sort.")
         return head
 
     print("1. Sort by Roll Number")
     print("2. Sort by Marks")
-    choice = input("Enter choice: ")  # Choose sorting field
+    choice = input("Enter choice: ")  
     order = input("Ascending (A) or Descending (D): ").upper()
 
-    swapped = True  # Flag for checking if swapping happened
-    # Using Bubble Sort on linked list
+    swapped = True  
+    
     while swapped:
         swapped = False
         temp = head
-        while temp["next"]:  # Traverse nodes
+        while temp["next"]: 
             swap = False
-            # Sorting condition based on user choice and order
-            if choice == "1":  # Sort by Roll No
+            
+            if choice == "1":  
                 if (order == "A" and temp["roll"] > temp["next"]["roll"]) or \
                    (order == "D" and temp["roll"] < temp["next"]["roll"]):
                     swap = True
-            elif choice == "2":  # Sort by Marks
+            elif choice == "2":  
                 if (order == "A" and temp["marks"] > temp["next"]["marks"]) or \
                    (order == "D" and temp["marks"] < temp["next"]["marks"]):
                     swap = True
 
-            # If swapping needed, exchange values between two nodes
+            
             if swap:
                 temp["roll"], temp["next"]["roll"] = temp["next"]["roll"], temp["roll"]
                 temp["name"], temp["next"]["name"] = temp["next"]["name"], temp["name"]
                 temp["marks"], temp["next"]["marks"] = temp["next"]["marks"], temp["marks"]
-                swapped = True  # Set flag true → another pass required
+                swapped = True  
 
             temp = temp["next"]
 
@@ -147,12 +145,12 @@ def sort_students(head):
     return head
 
 
-# ---------------- MAIN PROGRAM ----------------
-head = None  # Initially, linked list is empty
+# ---------------- MAIN
+head = None  
 
-# Infinite loop for menu-driven program
+
 while True:
-    # Menu display
+    
     print("\n--- STUDENT RECORD MANAGEMENT (LINKED LIST) ---")
     print("1. Add Student")
     print("2. Delete Student")
@@ -164,22 +162,23 @@ while True:
 
     ch = input("Enter your choice: ")
 
-    # Match choice and call respective function
+    
     if ch == '1':
-        head = add_student(head)       # Add new record
+        head = add_student(head)       
     elif ch == '2':
-        head = delete_student(head)    # Delete record
+        head = delete_student(head)   
     elif ch == '3':
-        update_student(head)           # Update record
+        update_student(head)           
     elif ch == '4':
-        search_student(head)           # Search record
+        search_student(head)           
     elif ch == '5':
-        display_students(head)         # Display all
+        display_students(head)         
     elif ch == '6':
-        head = sort_students(head)     # Sort list
+        head = sort_students(head)     
     elif ch == '7':
         print("Exiting program...")
-        break                          # Exit loop and program
+        break                          
     else:
-        print("Invalid choice!")       # Wrong input handling
+        print("Invalid choice!")      
+
 
